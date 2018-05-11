@@ -2,7 +2,7 @@ const express = require('express'),
 	app = express(),
 	PORT = process.env.PORT || 8081,
 	bodyParser = require('body-parser'),
-	{ graphqlExpress } = require('apollo-server-express'),
+	{ graphqlExpress, graphiqlExpress } = require('apollo-server-express'),
 	{ mergeSchemas } = require('graphql-tools'),
 	{ getIntrospectSchema } = require('./introspection');
 
@@ -18,6 +18,10 @@ const endpoints = [
 		allSchemas = await Promise.all(endpoints.map(ep => getIntrospectSchema(ep)));
 		//create function for /graphql endpoint and merge all the schemas
 		app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: mergeSchemas({ schemas: allSchemas }) }));
+		// provide graphiql for the merged schemas
+		app.use('/graphiql', graphiqlExpress({
+			endpointURL: '/graphql',
+		}));
 		//start up a graphql endpoint for our main server
 		app.listen(PORT, () => console.log('GraphQL API listening on port:' + PORT));
 	} catch (error) {
