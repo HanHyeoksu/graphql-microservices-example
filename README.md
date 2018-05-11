@@ -2,3 +2,8 @@
 This projects serves as an example project for Remote Stitching GraphQL instances together through a central GraphQL API. This is a great practice for easily connecting large nets of microservices and is easily maintainable.
 
 See the tutorial [here](https://codeburst.io/nodejs-graphql-micro-services-using-remote-stitching-7540030a0753)
+
+- Installation of [graphql-playground](https://github.com/graphcool/graphql-playground) that is used in the tutorial
+  ```shell
+  $ brew cask install graphql-playground
+  ```
