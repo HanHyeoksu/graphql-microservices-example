@@ -5,10 +5,10 @@
   "main": "./main-api/server",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install-all": "npm --prefix ./main-api i ./main-api && npm --prefix ./service-1 i ./service-1 && npm --prefix ./service-2 i ./service-2",
-	"start-service-1": "node ./service-1/server",
-	"start-service-2": "node ./service-2/server",
-	"start-main": "node ./main-api/server"
+    "install-all": "npm i main-api --prefix ./main-api && npm i service-1 --prefix service-1 && npm i service-2 --prefix ./service-2",
+    "start-service-1": "node ./service-1/server",
+    "start-service-2": "node ./service-2/server",
+    "start-main": "node ./main-api/server"
   },
   "keywords": [
     "GraphQL",
